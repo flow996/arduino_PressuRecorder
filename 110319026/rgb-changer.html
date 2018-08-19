@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='UTF-8'/>
+	<title>Form Control RGB_LED</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+	    $(document).ready(function(){
+			$("[type = range]").change(function(){
+			    var redval = $("#red").val();
+			    $("#red-text").text(redval);
+				var greenval = $("#green").val();
+				$("#green-text").text(greenval)
+				var blueval = $("#blue").val();
+				$("#blue-text").text(blueval);
+			});
+		});
+	</script>
+</head>
+<body style="background-color:#000000;">
+<div style="width:100vw;"><img src="http://i.imgur.com/REhfeJ1.gif" style="width:40vw;" ><img src="http://i.imgur.com/ldoeVrU.gif" style="width:50vw;"></div>
+	<h1 style="color:#bce9e7;margin-left:30vw;">RGB LED Control form</h1>
+	<p id="ledstatus" style="font-family:Verdana;color:#ffffff;margin-left:30vw;">You can select a LED status ...</p>
+	<form action="/form_mode" style="font-family:Verdana;color:#ffffff;margin-left:30vw;">
+		<input type="radio" id="normal" name="Mode" value="normal"><label for="on"> LED twinkle  </label>
+		<br>
+		<input type="radio" id="twinkle" name="Mode" value="twinkle"><label for="on"> LED single  </label>
+		<br>
+		<input type="radio" id="colorful" name="Mode" value="colorful"><label for="on"> LED colorful </label><br>
+		<p>Red Color : <span id = "red-text">0</span></p>
+		<input type="range" id="red" name="R-led" min="0" max="255" value="0">
+		<p>Green Color : <span id = "green-text">0</span></p>
+		<input type="range" id="green" name="G-led" min="0" max="255" value="0">
+		<p>Blue Color : <span id = "blue-text">0</span></p>
+		<input type="range" id="blue" name="B-led" min="0" max="255" value="0" ><br>
+		<input type="submit" value="submit" style="background-color:#f5f5f5; color:#323233; border-radius:5px; border-color:#D4D4D4;">
+	</form>
+    </body>
+</html>
